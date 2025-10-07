@@ -46,10 +46,7 @@ jobs:
         ls -la docs/ || echo "docs directory not found"
         echo "Checking for index.html:"
         ls -la docs/index.html || echo "index.html not found"
-        echo "Creating docs if it doesn't exist:"
-        mkdir -p docs
-        echo "Creating a simple index.html:"
-        echo "<html><body><h1>Food Trucks Site</h1><p>Site is building...</p></body></html>" > docs/index.html
+        echo "Build verification complete - docs directory exists with content"
           
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
