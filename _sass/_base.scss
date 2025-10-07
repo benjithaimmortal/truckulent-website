@@ -1,0 +1,255 @@
+// Saul Bass-inspired base styles
+:root {
+  --black: #252729;
+  --grey: #D9D8D6;
+  --white: #fff;
+  --primary: #FF4438;
+  --dark-grey: #363636;
+  --secondary: #3981c4;
+  --tertiary: #79d050ef;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: var(--black);
+  background-color: var(--white);
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Typography - Saul Bass style
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 1.5rem 0;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 1.25rem 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    color: var(--black);
+    text-decoration: underline;
+  }
+}
+
+// Lists
+ul, ol {
+  margin: 0 0 1.5rem 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+li {
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-left: 1.5rem;
+  
+  &::before {
+    content: "•";
+    color: var(--primary);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+}
+
+// Images
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Form elements
+input, textarea, select, button {
+  font-family: inherit;
+  font-size: 1rem;
+  border: 2px solid var(--grey);
+  border-radius: 0;
+  padding: 0.75rem 1rem;
+  background: var(--white);
+  transition: all 0.2s ease;
+  
+  &:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(255, 68, 56, 0.1);
+  }
+}
+
+button {
+  cursor: pointer;
+  border: 2px solid var(--primary);
+  background: var(--primary);
+  color: var(--white);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: var(--white);
+    color: var(--primary);
+  }
+}
+
+// Utility classes
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  
+  @media (min-width: 768px) {
+    padding: 0 2rem;
+  }
+}
+
+// Saul Bass geometric elements
+.geometric-shape {
+  position: absolute;
+  background: var(--primary);
+  z-index: -1;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 35px solid var(--primary);
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--secondary);
+}
+
+.square {
+  width: 30px;
+  height: 30px;
+  background: var(--tertiary);
+  transform: rotate(45deg);
+}
+
+// Loading states
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  
+  &__spinner {
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid var(--grey);
+    border-top: 2px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 0.5rem;
+  }
+  
+  &__text {
+    margin: 0;
+    color: var(--dark-grey);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Empty states
+.empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  
+  &__icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  &__title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark-grey);
+  }
+  
+  &__description {
+    color: var(--dark-grey);
+    margin: 0;
+  }
+}

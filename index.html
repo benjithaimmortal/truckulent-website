@@ -1,0 +1,100 @@
+---
+layout: default
+map: true
+filters: true
+---
+
+<section class="hero">
+    <div class="hero__content">
+        <h1 class="hero__title">Pittsburgh Food Trucks</h1>
+        <p class="hero__description">Discover the best mobile dining experiences in the Steel City</p>
+        <a href="#events" class="hero__cta">Explore Events</a>
+    </div>
+</section>
+
+<section class="main-content" id="events">
+    <div class="container">
+        <!-- Search and Filters -->
+        <div class="search__filters">
+            <div class="filter-group">
+                <label for="date-filter" class="filter__label">Date Range</label>
+                <select id="date-filter" class="filter__select">
+                    <option value="all">All Dates</option>
+                    <option value="today">Today</option>
+                    <option value="week">This Week</option>
+                    <option value="month">This Month</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="truck-filter" class="filter__label">Truck</label>
+                <select id="truck-filter" class="filter__select">
+                    <option value="all">All Trucks</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="location-filter" class="filter__label">Location</label>
+                <input type="text" id="location-filter" class="filter__input" placeholder="Search by venue or address">
+            </div>
+        </div>
+        
+        <!-- View Toggle -->
+        <div class="search__view-toggle">
+            <button class="view-toggle view-toggle--active" data-view="map">
+                <span class="view-toggle__icon">🗺️</span>
+                Map View
+            </button>
+            <button class="view-toggle" data-view="list">
+                <span class="view-toggle__icon">📋</span>
+                List View
+            </button>
+        </div>
+        
+        <!-- Main Content Layout -->
+        <div class="content__layout">
+            <!-- Map Container -->
+            <div class="map-container" id="map-container">
+                <div id="main-map" class="main-map"></div>
+            </div>
+            
+            <!-- Events Container -->
+            <div class="events-container" id="events-container">
+                <div class="events__header">
+                    <h2 class="events__title">Upcoming Events</h2>
+                    <div class="events__sort">
+                        <label for="sort-select" class="sort__label">Sort by:</label>
+                        <select id="sort-select" class="sort__select">
+                            <option value="date">Date</option>
+                            <option value="truck">Truck Name</option>
+                            <option value="venue">Venue</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="events__list" id="events-list">
+                    <!-- Events will be populated by JavaScript -->
+                </div>
+                
+                <div class="events__loading" id="events-loading">
+                    <div class="loading__spinner"></div>
+                    <p class="loading__text">Loading events...</p>
+                </div>
+                
+                <div class="events__empty" id="events-empty" style="display: none;">
+                    <div class="empty__icon">🚚</div>
+                    <h3 class="empty__title">No events found</h3>
+                    <p class="empty__description">Try adjusting your filters or check back later for new events.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize the main application
+    initMainApp();
+});
+</script>

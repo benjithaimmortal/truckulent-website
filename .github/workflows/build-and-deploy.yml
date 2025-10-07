@@ -1,0 +1,63 @@
+name: Build and Deploy Jekyll Site
+
+on:
+  schedule:
+    # Run every 6 hours
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+      
+    - name: Build Docker image
+      run: |
+        docker build -t pgh-food-trucks .
+        
+    - name: Fetch data from Supabase
+      run: |
+        docker run --rm \
+          -e SUPABASE_URL=${{ secrets.SUPABASE_URL }} \
+          -e SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }} \
+          -e GOOGLE_MAPS_API_KEY=${{ secrets.GOOGLE_MAPS_API_KEY }} \
+          -e GOOGLE_GEOCODING_API_KEY=${{ secrets.GOOGLE_GEOCODING_API_KEY }} \
+          -v ${{ github.workspace }}/_data:/app/_data \
+          pgh-food-trucks \
+          bundle exec ruby _plugins/fetch_data.rb
+        
+    - name: Build Jekyll site
+      run: |
+        docker run --rm \
+          -e JEKYLL_ENV=production \
+          -v ${{ github.workspace }}/_data:/app/_data \
+          -v ${{ github.workspace }}/_site:/app/_site \
+          pgh-food-trucks \
+          bundle exec jekyll build
+        
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./_site
+        
+    - name: Deploy to Netlify (Alternative)
+      if: github.ref == 'refs/heads/main'
+      uses: nwtgck/actions-netlify@v2.0
+      with:
+        publish-dir: './_site'
+        production-branch: main
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        deploy-message: "Deploy from GitHub Actions"
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

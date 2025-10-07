@@ -1,0 +1,83 @@
+# Site settings
+title: "Pittsburgh Food Trucks"
+description: "Find food trucks and events in Pittsburgh"
+url: "https://pghfoodtrucks.com"
+baseurl: ""
+email: "hello@pghfoodtrucks.com"
+author: "Pittsburgh Food Trucks"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+timezone: America/New_York
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Collections
+collections:
+  events:
+    output: true
+    permalink: /events/:name/
+  trucks:
+    output: true
+    permalink: /trucks/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "events"
+    values:
+      layout: "event"
+      show_excerpts: true
+  - scope:
+      path: ""
+      type: "trucks"
+    values:
+      layout: "truck"
+      show_excerpts: true
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Sass
+sass:
+  style: compressed
+  load_paths:
+    - _sass
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .env
+  - .env.local
+  - README.md
+  - .gitignore
+
+# Include in processing
+include:
+  - _data
+
+# Google Maps Configuration
+google_maps:
+  api_key: "{{ site.google_maps_api_key }}"
+  default_center:
+    lat: 40.4406
+    lng: -79.9959
+  default_zoom: 12
+  marker_cluster: true
+
+# Supabase Configuration
+supabase:
+  url: "{{ site.supabase_url }}"
+  anon_key: "{{ site.supabase_anon_key }}"
+  events_table: "public_events"
