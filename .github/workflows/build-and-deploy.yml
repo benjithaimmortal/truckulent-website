@@ -1,20 +1,25 @@
 name: Build and Deploy Jekyll Site
 
 on:
-  schedule:
-    # Run every 6 hours
-    - cron: '0 */6 * * *'
+  # schedule:
+  #   # Run every 6 hours
+  #   - cron: '0 */6 * * *'
+  # workflow_dispatch:
+  # push:
+  #   branches: [ main ]
   workflow_dispatch:
-  push:
-    branches: [ main ]
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     permissions:
       contents: read
       pages: write
       id-token: write
+      actions: read
     
     steps:
     - name: Checkout repository
@@ -59,13 +64,16 @@ jobs:
         echo "Index file exists:"
         ls -la _site/index.html
         
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+      if: github.ref == 'refs/heads/main'
+      
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
       if: github.ref == 'refs/heads/main'
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./_site
-        # Optional: Add your custom domain here
-        # cname: your-domain.com
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        path: ./_site
+        
+    - name: Deploy to GitHub Pages
+      uses: actions/deploy-pages@v4
+      if: github.ref == 'refs/heads/main'

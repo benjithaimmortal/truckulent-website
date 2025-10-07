@@ -1,0 +1,43 @@
+name: Simple Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+      
+    - name: Build Docker image
+      run: docker build -t truckulent .
+      
+    - name: Create data directory
+      run: |
+        mkdir -p _data
+        mkdir -p _site
+        
+    - name: Build Jekyll site
+      run: |
+        docker run --rm --entrypoint="" \
+          -e JEKYLL_ENV=production \
+          -e SUPABASE_URL=${{ secrets.SUPABASE_URL }} \
+          -e SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }} \
+          -e GOOGLE_MAPS_API_KEY=${{ secrets.GOOGLE_MAPS_API_KEY }} \
+          -e GOOGLE_GEOCODING_API_KEY=${{ secrets.GOOGLE_GEOCODING_API_KEY }} \
+          -v ${{ github.workspace }}:/srv/jekyll \
+          -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+          truckulent \
+          bundle exec jekyll build
+          
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./_site
