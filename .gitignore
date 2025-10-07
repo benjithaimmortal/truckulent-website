@@ -1,5 +1,6 @@
 .cache/
 logs/
+docs/
 
 # original
 node_modules/

@@ -25,7 +25,7 @@ jobs:
     - name: Create data directory
       run: |
         mkdir -p _data
-        mkdir -p _site
+        mkdir -p docs
         
     - name: Build Jekyll site
       run: |
@@ -36,24 +36,24 @@ jobs:
           -e GOOGLE_MAPS_API_KEY=${{ secrets.GOOGLE_MAPS_API_KEY }} \
           -e GOOGLE_GEOCODING_API_KEY=${{ secrets.GOOGLE_GEOCODING_API_KEY }} \
           -v ${{ github.workspace }}:/srv/jekyll \
-          -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+          -v ${{ github.workspace }}/docs:/srv/jekyll/_site \
           truckulent \
           bundle exec jekyll build
           
     - name: Verify build output
       run: |
-        echo "Checking _site directory:"
-        ls -la _site/ || echo "_site directory not found"
+        echo "Checking docs directory:"
+        ls -la docs/ || echo "docs directory not found"
         echo "Checking for index.html:"
-        ls -la _site/index.html || echo "index.html not found"
-        echo "Creating _site if it doesn't exist:"
-        mkdir -p _site
+        ls -la docs/index.html || echo "index.html not found"
+        echo "Creating docs if it doesn't exist:"
+        mkdir -p docs
         echo "Creating a simple index.html:"
-        echo "<html><body><h1>Food Trucks Site</h1><p>Site is building...</p></body></html>" > _site/index.html
+        echo "<html><body><h1>Food Trucks Site</h1><p>Site is building...</p></body></html>" > docs/index.html
           
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.PERSONAL_TOKEN }}
-        publish_dir: ./_site
+        publish_dir: ./docs
         force_orphan: true
