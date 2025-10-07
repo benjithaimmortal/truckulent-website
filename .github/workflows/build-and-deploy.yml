@@ -21,26 +21,24 @@ jobs:
       
     - name: Build Docker image
       run: |
-        docker build -t pgh-food-trucks .
+        docker build -t truckulent .
         
-    - name: Fetch data from Supabase
+    - name: Create data directory
       run: |
-        docker run --rm \
+        mkdir -p _data
+        mkdir -p _site
+        
+    - name: Build Jekyll site with data fetching
+      run: |
+        docker run --rm --entrypoint="" \
+          -e JEKYLL_ENV=production \
           -e SUPABASE_URL=${{ secrets.SUPABASE_URL }} \
           -e SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }} \
           -e GOOGLE_MAPS_API_KEY=${{ secrets.GOOGLE_MAPS_API_KEY }} \
           -e GOOGLE_GEOCODING_API_KEY=${{ secrets.GOOGLE_GEOCODING_API_KEY }} \
-          -v ${{ github.workspace }}/_data:/app/_data \
-          pgh-food-trucks \
-          bundle exec ruby _plugins/fetch_data.rb
-        
-    - name: Build Jekyll site
-      run: |
-        docker run --rm \
-          -e JEKYLL_ENV=production \
-          -v ${{ github.workspace }}/_data:/app/_data \
-          -v ${{ github.workspace }}/_site:/app/_site \
-          pgh-food-trucks \
+          -v ${{ github.workspace }}:/srv/jekyll \
+          -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+          truckulent \
           bundle exec jekyll build
         
     - name: Deploy to GitHub Pages
