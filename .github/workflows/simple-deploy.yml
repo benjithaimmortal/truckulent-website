@@ -1,8 +1,9 @@
 name: Simple Deploy to GitHub Pages
 
 on:
-  push:
-    branches: [ main ]
+  # Disabled to avoid conflicts with build-and-deploy.yml
+  # push:
+  #   branches: [ main ]
 
 jobs:
   deploy:

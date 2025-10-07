@@ -1,13 +1,12 @@
 name: Build and Deploy Jekyll Site
 
 on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
   # schedule:
   #   # Run every 6 hours
   #   - cron: '0 */6 * * *'
-  # workflow_dispatch:
-  # push:
-  #   branches: [ main ]
-  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -42,7 +41,7 @@ jobs:
     - name: Create data directory
       run: |
         mkdir -p _data
-        mkdir -p _site
+        mkdir -p docs
         
     - name: Build Jekyll site with data fetching
       run: |
@@ -53,16 +52,16 @@ jobs:
           -e GOOGLE_MAPS_API_KEY=${{ secrets.GOOGLE_MAPS_API_KEY }} \
           -e GOOGLE_GEOCODING_API_KEY=${{ secrets.GOOGLE_GEOCODING_API_KEY }} \
           -v ${{ github.workspace }}:/srv/jekyll \
-          -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+          -v ${{ github.workspace }}/docs:/srv/jekyll/_site \
           truckulent \
           bundle exec jekyll build
           
     - name: Verify build output
       run: |
         echo "Build output contents:"
-        ls -la _site/
+        ls -la docs/
         echo "Index file exists:"
-        ls -la _site/index.html
+        ls -la docs/index.html
         
     - name: Setup Pages
       uses: actions/configure-pages@v4
@@ -72,7 +71,7 @@ jobs:
       uses: actions/upload-pages-artifact@v3
       if: github.ref == 'refs/heads/main'
       with:
-        path: ./_site
+        path: ./docs
         
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
