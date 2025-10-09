@@ -27,6 +27,22 @@ jobs:
         echo "Actor: ${{ github.actor }}"
         echo "Event: ${{ github.event_name }}"
       
+    - name: Debug environment variables
+      run: |
+        echo "=== Environment Variables Debug ==="
+        echo "GOOGLE_MAPS_API_KEY length: ${#GOOGLE_MAPS_API_KEY}"
+        echo "GOOGLE_MAPS_API_KEY first 10 chars: ${GOOGLE_MAPS_API_KEY:0:10}..."
+        echo "GOOGLE_MAPS_API_KEY last 10 chars: ...${GOOGLE_MAPS_API_KEY: -10}"
+        echo "SUPABASE_URL: $SUPABASE_URL"
+        echo "SUPABASE_ANON_KEY length: ${#SUPABASE_ANON_KEY}"
+        echo "GOOGLE_GEOCODING_API_KEY length: ${#GOOGLE_GEOCODING_API_KEY}"
+        echo "=================================="
+      env:
+        GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY || 'NOT_SET' }}
+        SUPABASE_URL: ${{ secrets.SUPABASE_URL || 'NOT_SET' }}
+        SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY || 'NOT_SET' }}
+        GOOGLE_GEOCODING_API_KEY: ${{ secrets.GOOGLE_GEOCODING_API_KEY || 'NOT_SET' }}
+      
     - name: Create data directory
       run: |
         mkdir -p _data
@@ -55,6 +71,23 @@ jobs:
     - name: Build Jekyll site
       run: |
         bundle exec jekyll build --destination docs
+      env:
+        GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY || 'placeholder-key' }}
+        SUPABASE_URL: ${{ secrets.SUPABASE_URL || 'https://placeholder.supabase.co' }}
+        SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY || 'placeholder-key' }}
+          
+    - name: Debug built HTML
+      run: |
+        echo "=== Checking built HTML for API key ==="
+        if [ -f "docs/index.html" ]; then
+          echo "Found Google Maps script tag:"
+          grep -o 'maps.googleapis.com/maps/api/js?key=[^&]*' docs/index.html || echo "No Google Maps script found"
+          echo "Full script tag:"
+          grep -A1 -B1 'maps.googleapis.com' docs/index.html || echo "No Google Maps references found"
+        else
+          echo "docs/index.html not found!"
+        fi
+        echo "====================================="
           
     - name: Verify build output
       run: |
