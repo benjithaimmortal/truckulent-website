@@ -63,16 +63,9 @@ jobs:
         echo "Index file exists:"
         ls -la docs/index.html
         
-    - name: Setup Pages
-      uses: actions/configure-pages@v4
-      if: github.ref == 'refs/heads/main'
-      
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/main'
       with:
-        path: ./docs
-        
-    - name: Deploy to GitHub Pages
-      uses: actions/deploy-pages@v4
-      if: github.ref == 'refs/heads/main'
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs
