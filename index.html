@@ -1,7 +1,6 @@
 ---
 layout: default
 map: true
-filters: true
 ---
 
 <section class="hero">
@@ -14,43 +13,6 @@ filters: true
 
 <section class="main-content" id="events">
     <div class="container">
-        <!-- Search and Filters -->
-        <div class="search__filters">
-            <div class="filter-group">
-                <label for="date-filter" class="filter__label">Date Range</label>
-                <select id="date-filter" class="filter__select">
-                    <option value="all">All Dates</option>
-                    <option value="today">Today</option>
-                    <option value="week">This Week</option>
-                    <option value="month">This Month</option>
-                </select>
-            </div>
-            
-            <div class="filter-group">
-                <label for="truck-filter" class="filter__label">Truck</label>
-                <select id="truck-filter" class="filter__select">
-                    <option value="all">All Trucks</option>
-                </select>
-            </div>
-            
-            <div class="filter-group">
-                <label for="location-filter" class="filter__label">Location</label>
-                <input type="text" id="location-filter" class="filter__input" placeholder="Search by venue or address">
-            </div>
-        </div>
-        
-        <!-- View Toggle -->
-        <div class="search__view-toggle">
-            <button class="view-toggle view-toggle--active" data-view="map">
-                <span class="view-toggle__icon">🗺️</span>
-                Map View
-            </button>
-            <button class="view-toggle" data-view="list">
-                <span class="view-toggle__icon">📋</span>
-                List View
-            </button>
-        </div>
-        
         <!-- Main Content Layout -->
         <div class="content__layout">
             <!-- Map Container -->
@@ -62,39 +24,76 @@ filters: true
             <div class="events-container" id="events-container">
                 <div class="events__header">
                     <h2 class="events__title">Upcoming Events</h2>
-                    <div class="events__sort">
-                        <label for="sort-select" class="sort__label">Sort by:</label>
-                        <select id="sort-select" class="sort__select">
-                            <option value="date">Date</option>
-                            <option value="truck">Truck Name</option>
-                            <option value="venue">Venue</option>
-                        </select>
-                    </div>
                 </div>
                 
                 <div class="events__list" id="events-list">
-                    <!-- Events will be populated by JavaScript -->
-                </div>
-                
-                <div class="events__loading" id="events-loading">
-                    <div class="loading__spinner"></div>
-                    <p class="loading__text">Loading events...</p>
-                </div>
-                
-                <div class="events__empty" id="events-empty" style="display: none;">
-                    <div class="empty__icon">🚚</div>
-                    <h3 class="empty__title">No events found</h3>
-                    <p class="empty__description">Try adjusting your filters or check back later for new events.</p>
+                    {% if site.data.events and site.data.events.size > 0 %}
+                        {% for event in site.data.events %}
+                            {% assign start_date = event.start_ts | date: "%Y-%m-%d" %}
+                            {% assign start_time = event.start_ts | date: "%H:%M" %}
+                            {% assign end_time = event.end_ts | date: "%H:%M" %}
+                            {% assign has_location = false %}
+                            {% if event.lat and event.lng and event.lat != 0 and event.lng != 0 %}
+                                {% assign has_location = true %}
+                            {% endif %}
+                            {% assign has_address = false %}
+                            {% if event.raw_address and event.raw_address != blank %}
+                                {% assign has_address = true %}
+                            {% elsif event.formatted_address and event.formatted_address != blank %}
+                                {% assign has_address = true %}
+                            {% endif %}
+                            
+                            <div class="event-card{% unless has_location %} event-card--no-actions{% endunless %}">
+                                <div class="event-card__date">
+                                    <span class="date__month">{{ start_date | date: "%b" }}</span>
+                                    <span class="date__day">{{ start_date | date: "%d" }}</span>
+                                </div>
+                                
+                                <div class="event-card__content">
+                                    <h3 class="event-card__venue">{{ event.venue }}</h3>
+                                    <p class="event-card__truck">{{ event.truck_name }}</p>
+                                    <p class="event-card__time">
+                                        {% if event.end_ts %}
+                                            {{ start_time }} - {{ end_time }}
+                                        {% else %}
+                                            {{ start_time }}+
+                                        {% endif %}
+                                    </p>
+                                    {% if has_address %}
+                                        {% if event.raw_address and event.raw_address != blank %}
+                                            <p class="event-card__location">📍 {{ event.raw_address }}, {{ event.city }}</p>
+                                        {% else %}
+                                            <p class="event-card__location">📍 {{ event.formatted_address }}</p>
+                                        {% endif %}
+                                    {% else %}
+                                        <p class="event-card__location event-card__location--unavailable">⚠️ Location data unavailable for this event</p>
+                                    {% endif %}
+                                </div>
+                                
+                                {% if has_location %}
+                                    <div class="event-card__actions">
+                                        <button class="btn btn--small btn--pill" data-event-id="{{ event.id }}" data-lat="{{ event.lat }}" data-lng="{{ event.lng }}">View on Map</button>
+                                        <a href="https://www.google.com/maps/dir/?api=1&destination={{ event.lat }},{{ event.lng }}" target="_blank" class="btn btn--small btn--secondary btn--pill">Directions</a>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="empty">
+                            <div class="empty__icon">🚚</div>
+                            <h3 class="empty__title">No events found</h3>
+                            <p class="empty__description">Check back later for new events.</p>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize the main application
-    initMainApp();
+    // Initialize the map and event handlers only
+    initMapAndHandlers();
 });
 </script>

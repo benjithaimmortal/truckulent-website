@@ -18,6 +18,7 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+  # Data fetching is now handled by pre-build script
 
 # Collections
 collections:
@@ -67,6 +68,14 @@ exclude:
 # Include in processing
 include:
   - _data
+
+# Exclude from watch (prevent infinite loops)
+watch_exclude:
+  - _data/events.json
+  - _data/events_raw.json
+  - _data/trucks.json
+  - _data/.data_fetcher_lock
+  - scripts/
 
 # Google Maps Configuration
 google_maps:

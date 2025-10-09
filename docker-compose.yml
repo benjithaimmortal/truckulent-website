@@ -14,9 +14,10 @@ services:
     environment:
       - JEKYLL_ENV=development
       - GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY}
+      - GOOGLE_GEOCODING_API_KEY=${GOOGLE_GEOCODING_API_KEY}
     env_file:
       - .env
-    command: ["serve", "--host", "0.0.0.0"]  # Default to serve without watch
+    entrypoint: ["sh", "./start.sh"]
 
 volumes:
   bundle_cache:

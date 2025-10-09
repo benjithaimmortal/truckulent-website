@@ -1,0 +1,22 @@
+{
+  "name": "pittsburgh-food-trucks",
+  "version": "1.0.0",
+  "description": "Pittsburgh Food Trucks website built with Jekyll",
+  "scripts": {
+    "dev": "docker-compose up",
+    "build": "docker-compose run --rm jekyll sh -c 'ruby scripts/fetch-data.rb && bundle exec jekyll build'",
+    "fetch-data": "docker-compose run --rm jekyll ruby scripts/fetch-data.rb",
+    "serve": "docker-compose up",
+    "build:prod": "JEKYLL_ENV=production docker-compose run --rm jekyll sh -c 'ruby scripts/fetch-data.rb && bundle exec jekyll build'"
+  },
+  "keywords": [
+    "jekyll",
+    "food-trucks",
+    "pittsburgh",
+    "static-site"
+  ],
+  "author": "Pittsburgh Food Trucks",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}
