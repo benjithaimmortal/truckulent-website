@@ -3,7 +3,7 @@ version: '3.8'
 services:
   jekyll:
     build: .
-    container_name: truckulent2
+    container_name: truckulent
     platform: linux/arm64
     volumes:
       - .:/srv/jekyll
@@ -14,10 +14,9 @@ services:
     environment:
       - JEKYLL_ENV=development
       - GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY}
-      - GOOGLE_GEOCODING_API_KEY=${GOOGLE_GEOCODING_API_KEY}
     env_file:
       - .env
-    entrypoint: ["sh", "./start.sh"]
+    command: ["serve", "--host", "0.0.0.0"]  # Default to serve without watch
 
 volumes:
   bundle_cache:

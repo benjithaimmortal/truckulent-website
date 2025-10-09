@@ -1,0 +1,42 @@
+{
+  "South Side Works__Pittsburgh": {
+    "lat": 40.4280586,
+    "lng": -79.96527859999999,
+    "formatted_address": "424 S 27th St Suite 300, Pittsburgh, PA 15203, USA"
+  },
+  "Brooktree office park_7500 Brooktree Rd Wexford_Wexford": {
+    "lat": 40.6144002,
+    "lng": -80.0597799,
+    "formatted_address": "7500 Brooktree Rd, Wexford, PA 15090, USA"
+  },
+  "Dancing Gnome Beer__Pittsburgh, PA": {
+    "lat": 40.4938628,
+    "lng": -79.93154779999999,
+    "formatted_address": "1025 Main St, Pittsburgh, PA 15215, USA"
+  },
+  "Boldthunderbrewing__Pittsburgh, PA": {
+    "lat": 40.4386612,
+    "lng": -79.99723519999999,
+    "formatted_address": "Pittsburgh, PA, USA"
+  },
+  "ECHO__Pittsburgh, PA": {
+    "lat": 40.4386612,
+    "lng": -79.99723519999999,
+    "formatted_address": "Pittsburgh, PA, USA"
+  },
+  "McCandless swim club lot_8300 Thompson Run Rd 15237_Pittsburgh": {
+    "lat": 40.5613515,
+    "lng": -79.9987936,
+    "formatted_address": "8300 Thompson Run Rd, Pittsburgh, PA 15237, USA"
+  },
+  "Los Gallitos Taqueria__Pittsburgh": {
+    "lat": 40.4073,
+    "lng": -79.91011999999999,
+    "formatted_address": "216 E 8th Ave, Homestead, PA 15120, USA"
+  },
+  "Cousins Maine Lobster Event__Pittsburgh, PA": {
+    "lat": 40.4268467,
+    "lng": -79.852669,
+    "formatted_address": "Maine St, Forest Hills, PA 15221, USA"
+  }
+}

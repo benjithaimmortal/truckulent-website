@@ -1,8 +1,8 @@
 # Site settings
 title: "Pittsburgh Food Trucks"
 description: "Find food trucks and events in Pittsburgh"
-url: "https://pghfoodtrucks.com"
-baseurl: ""
+url: "https://benjithaimmortal.github.io"
+baseurl: "/truckutest"
 email: "hello@pghfoodtrucks.com"
 author: "Pittsburgh Food Trucks"
 

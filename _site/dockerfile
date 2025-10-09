@@ -13,17 +13,14 @@ WORKDIR /srv/jekyll
 # Install Jekyll and Bundler system-wide first (cached in layers)
 RUN gem install bundler jekyll webrick
 
-# Copy Gemfile and Gemfile.lock first (to leverage Docker caching)
-COPY Gemfile Gemfile.lock ./
+# Copy only Gemfile first (to leverage Docker caching)
+COPY Gemfile ./
 
 # Install dependencies before copying the rest of the project
 RUN bundle install
 
 # Copy the rest of the Jekyll site files
-COPY . .
-
-# Run bundle install again to ensure all dependencies are available
-RUN bundle install 
+COPY . . 
 
 # Expose port 4000 for Jekyll
 EXPOSE 4000

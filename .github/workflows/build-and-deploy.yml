@@ -1,0 +1,83 @@
+name: Build and Deploy Jekyll Site
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+  # schedule:
+  #   # Run every 6 hours
+  #   - cron: '0 */6 * * *'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+      actions: read
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Debug repository info
+      run: |
+        echo "Repository: ${{ github.repository }}"
+        echo "Ref: ${{ github.ref }}"
+        echo "Actor: ${{ github.actor }}"
+        echo "Event: ${{ github.event_name }}"
+      
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+      
+    - name: Create data directory
+      run: |
+        mkdir -p _data
+        mkdir -p docs
+        
+    - name: Build Jekyll site with data fetching
+      run: |
+        # Set environment variables for Docker
+        export SUPABASE_URL=${{ secrets.SUPABASE_URL }}
+        export SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }}
+        export GOOGLE_MAPS_API_KEY=${{ secrets.GOOGLE_MAPS_API_KEY }}
+        export GOOGLE_GEOCODING_API_KEY=${{ secrets.GOOGLE_GEOCODING_API_KEY }}
+        
+        # Build the Docker image
+        docker build -t truckulent-jekyll .
+        
+        # Run the container to fetch data and build the site
+        docker run --rm \
+          -e JEKYLL_ENV=production \
+          -e SUPABASE_URL="$SUPABASE_URL" \
+          -e SUPABASE_ANON_KEY="$SUPABASE_ANON_KEY" \
+          -e GOOGLE_MAPS_API_KEY="$GOOGLE_MAPS_API_KEY" \
+          -e GOOGLE_GEOCODING_API_KEY="$GOOGLE_GEOCODING_API_KEY" \
+          -v "$PWD:/srv/jekyll" \
+          --entrypoint="" \
+          truckulent-jekyll sh -c "ruby scripts/fetch-data.rb && bundle exec jekyll build"
+          
+    - name: Verify build output
+      run: |
+        echo "Build output contents:"
+        ls -la docs/
+        echo "Index file exists:"
+        ls -la docs/index.html
+        
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+      if: github.ref == 'refs/heads/main'
+      
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      if: github.ref == 'refs/heads/main'
+      with:
+        path: ./docs
+        
+    - name: Deploy to GitHub Pages
+      uses: actions/deploy-pages@v4
+      if: github.ref == 'refs/heads/main'

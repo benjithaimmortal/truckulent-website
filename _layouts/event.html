@@ -1,0 +1,98 @@
+---
+layout: default
+---
+
+<article class="event">
+    <div class="container">
+        <div class="event__header">
+            <div class="event__meta">
+                <span class="event__truck">{{ page.truck_name }}</span>
+                <span class="event__date">{{ page.start_ts | date: '%B %d, %Y' }}</span>
+                <span class="event__time">{{ page.start_ts | date: '%l:%M %p' }} - {{ page.end_ts | date: '%l:%M %p' }}</span>
+            </div>
+            
+            <h1 class="event__title">{{ page.venue }}</h1>
+            
+            <div class="event__location">
+                <span class="location__icon">📍</span>
+                <div class="location__details">
+                    <div class="location__address">{{ page.raw_address }}</div>
+                    <div class="location__city">{{ page.city }}</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="event__content">
+            <div class="event__map-container">
+                <div id="event-map" class="event__map"></div>
+            </div>
+            
+            <div class="event__details">
+                <div class="event__actions">
+                    <a href="https://www.google.com/maps/dir/?api=1&destination={{ page.lat }},{{ page.lng }}" 
+                       target="_blank" 
+                       class="btn btn--primary">
+                        Get Directions
+                    </a>
+                    
+                    {% if page.source_url %}
+                    <a href="{{ page.source_url }}" 
+                       target="_blank" 
+                       class="btn btn--secondary">
+                        View Source
+                    </a>
+                    {% endif %}
+                </div>
+                
+                <div class="event__info">
+                    <div class="info__item">
+                        <strong>Confidence:</strong> 
+                        <span class="confidence confidence--{{ page.confidence | downcase }}">{{ page.confidence }}</span>
+                    </div>
+                    
+                    <div class="info__item">
+                        <strong>Last Updated:</strong> 
+                        {{ page.last_seen_at | date: '%B %d, %Y at %l:%M %p' }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="event__related">
+            <h2 class="related__title">More from {{ page.truck_name }}</h2>
+            <div class="related__events">
+                {% assign truck_events = site.data.events | where: 'truck_name', page.truck_name %}
+                {% for event in truck_events limit: 3 %}
+                    {% unless event.id == page.id %}
+                        <div class="event-card">
+                            <div class="event-card__date">
+                                {{ event.start_ts | date: '%b %d' }}
+                            </div>
+                            <div class="event-card__content">
+                                <h3 class="event-card__venue">{{ event.venue }}</h3>
+                                <p class="event-card__time">{{ event.start_ts | date: '%l:%M %p' }} - {{ event.end_ts | date: '%l:%M %p' }}</p>
+                                <p class="event-card__location">{{ event.raw_address }}</p>
+                            </div>
+                            <a href="{{ event.id | prepend: '/events/' | relative_url }}" class="event-card__link"></a>
+                        </div>
+                    {% endunless %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</article>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize map for this event
+    const eventData = {
+        lat: {{ page.lat }},
+        lng: {{ page.lng }},
+        venue: "{{ page.venue }}",
+        truck: "{{ page.truck_name }}",
+        time: "{{ page.start_ts | date: '%l:%M %p' }} - {{ page.end_ts | date: '%l:%M %p' }}"
+    };
+    
+    initEventMap('event-map', eventData);
+});
+</script>
