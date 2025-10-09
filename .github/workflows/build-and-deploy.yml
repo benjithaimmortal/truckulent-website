@@ -11,13 +11,10 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
     permissions:
       contents: read
       pages: write
       id-token: write
-      actions: read
     
     steps:
     - name: Checkout repository
@@ -40,11 +37,11 @@ jobs:
         
     - name: Build Jekyll site with data fetching
       run: |
-        # Set environment variables for Docker
-        export SUPABASE_URL=${{ secrets.SUPABASE_URL }}
-        export SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }}
-        export GOOGLE_MAPS_API_KEY=${{ secrets.GOOGLE_MAPS_API_KEY }}
-        export GOOGLE_GEOCODING_API_KEY=${{ secrets.GOOGLE_GEOCODING_API_KEY }}
+        # Set environment variables for Docker (with fallbacks)
+        export SUPABASE_URL=${{ secrets.SUPABASE_URL || 'https://placeholder.supabase.co' }}
+        export SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY || 'placeholder-key' }}
+        export GOOGLE_MAPS_API_KEY=${{ secrets.GOOGLE_MAPS_API_KEY || 'placeholder-key' }}
+        export GOOGLE_GEOCODING_API_KEY=${{ secrets.GOOGLE_GEOCODING_API_KEY || 'placeholder-key' }}
         
         # Build the Docker image
         docker build -t truckulent-jekyll .
