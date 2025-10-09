@@ -4,6 +4,20 @@
     "slug": "sinkers-and-suds",
     "events": [
       {
+        "id": "e41cf37e-4de8-4a6a-9f10-0111eac37782",
+        "truck_name": "Sinkers and Suds",
+        "start_ts": "2025-09-26T01:05:02+00:00",
+        "end_ts": null,
+        "venue": "South Side Works",
+        "raw_address": "424 S 27th St Suite 300, Pittsburgh, PA 15203, USA",
+        "city": "Pittsburgh",
+        "lat": 40.4280586,
+        "lng": -79.9652786,
+        "source_url": "https://www.instagram.com/p/DPC959hEXYR/",
+        "confidence": 1.0,
+        "last_seen_at": "2025-10-08T18:26:00.57+00:00"
+      },
+      {
         "id": "f7ac23cc-e45c-4538-83d0-06b95c4ba8ab",
         "truck_name": "Sinkers and Suds",
         "start_ts": "2025-09-27T00:00:00+00:00",
@@ -14,53 +28,31 @@
         "lat": 40.4280586,
         "lng": -79.9652786,
         "source_url": "https://www.instagram.com/p/DOW1YFCj4ik/",
-        "confidence": 0.9,
-        "last_seen_at": "2025-10-08T17:33:34.777+00:00"
-      }
-    ],
-    "total_events": 1,
-    "last_seen": "2025-09-27T00:00:00+00:00"
-  },
-  {
-    "name": "Mission Mahi",
-    "slug": "mission-mahi",
-    "events": [
-      {
-        "id": "5460a6a5-ffde-4aa3-a8b0-8d716d3e9445",
-        "truck_name": "Mission Mahi",
-        "start_ts": "2025-09-28T09:08:23+00:00",
-        "end_ts": null,
-        "venue": "7500 Brooktree Rd Wexford",
-        "raw_address": "7500 Brooktree Rd, Wexford, PA 15090, USA",
-        "city": "Wexford",
-        "lat": 40.6144002,
-        "lng": -80.0597799,
-        "source_url": "https://www.facebook.com/permalink.php?story_fbid=pfbid02e5zSXE2pvncByD8WCwzoEeeJj97Q3BbJn1KyU8y8Nutsi7KzjDdBtpdzM8L4HbTel&id=100063609611632",
         "confidence": 1.0,
-        "last_seen_at": "2025-10-08T17:33:32.919+00:00"
-      },
-      {
-        "id": "44bfd2ab-71c8-46a4-8fbf-fdbabdf67ac5",
-        "truck_name": "Mission Mahi",
-        "start_ts": "2025-10-06T08:04:40+00:00",
-        "end_ts": null,
-        "venue": "8300 Thompson Run Rd 15237",
-        "raw_address": "8300 Thompson Run Rd, Pittsburgh, PA 15237, USA",
-        "city": "Pittsburgh",
-        "lat": 40.562016,
-        "lng": -79.998628,
-        "source_url": "https://www.facebook.com/permalink.php?story_fbid=pfbid02ZWW1VJdcDuvBpjpzGmeKambgaBBjwk7dhkxDzTFkSbC5YSdjo2DbWrbtT9zYszBel&id=100063609611632",
-        "confidence": 1.0,
-        "last_seen_at": "2025-10-08T17:33:32.919+00:00"
+        "last_seen_at": "2025-10-08T18:26:00.57+00:00"
       }
     ],
     "total_events": 2,
-    "last_seen": "2025-10-06T08:04:40+00:00"
+    "last_seen": "2025-09-27T00:00:00+00:00"
   },
   {
     "name": "Cold Friends Kitchen",
     "slug": "cold-friends-kitchen",
     "events": [
+      {
+        "id": "2622cdad-5542-4121-ac96-5ab19cdec776",
+        "truck_name": "Cold Friends Kitchen",
+        "start_ts": "2025-09-27T18:32:10+00:00",
+        "end_ts": null,
+        "venue": "SouthSide Works",
+        "raw_address": "SouthSide Works, Pittsburgh, PA",
+        "city": "Pittsburgh",
+        "lat": 40.4333,
+        "lng": -79.9795,
+        "source_url": "https://www.instagram.com/p/DPHaHuNDg1k/",
+        "confidence": 0.9,
+        "last_seen_at": "2025-10-08T18:23:45.209+00:00"
+      },
       {
         "id": "5d2b2b2d-d7f7-49a2-b7d6-e406d6abe11d",
         "truck_name": "Cold Friends Kitchen",
@@ -88,15 +80,107 @@
         "source_url": "https://www.instagram.com/p/DPUm_4uEuWY/",
         "confidence": 0.9,
         "last_seen_at": "2025-10-08T17:33:34.364+00:00"
+      },
+      {
+        "id": "b1caeb05-ec10-429a-b982-a014351ed133",
+        "truck_name": "Cold Friends Kitchen",
+        "start_ts": "2025-10-02T21:31:11+00:00",
+        "end_ts": null,
+        "venue": "Club Pittsburgh",
+        "raw_address": "Club Pittsburgh, Pittsburgh, PA",
+        "city": "Pittsburgh",
+        "lat": 40.4406,
+        "lng": -79.9959,
+        "source_url": "https://www.instagram.com/p/DPUm_4uEuWY/",
+        "confidence": 0.9,
+        "last_seen_at": "2025-10-08T18:23:45.209+00:00"
       }
     ],
-    "total_events": 2,
+    "total_events": 4,
     "last_seen": "2025-10-02T21:31:11+00:00"
+  },
+  {
+    "name": "Mission Mahi",
+    "slug": "mission-mahi",
+    "events": [
+      {
+        "id": "f061708d-d006-47bb-8ff0-8b4ee097dbb4",
+        "truck_name": "Mission Mahi",
+        "start_ts": "2025-09-28T09:08:23+00:00",
+        "end_ts": null,
+        "venue": "7500 Brooktree Rd",
+        "raw_address": "7500 Brooktree Rd, Wexford, PA 15090, USA",
+        "city": "Wexford",
+        "lat": 40.6144002,
+        "lng": -80.0597799,
+        "source_url": "https://www.facebook.com/permalink.php?story_fbid=pfbid02e5zSXE2pvncByD8WCwzoEeeJj97Q3BbJn1KyU8y8Nutsi7KzjDdBtpdzM8L4HbTel&id=100063609611632",
+        "confidence": 1.0,
+        "last_seen_at": "2025-10-08T17:50:29.999+00:00"
+      },
+      {
+        "id": "5460a6a5-ffde-4aa3-a8b0-8d716d3e9445",
+        "truck_name": "Mission Mahi",
+        "start_ts": "2025-09-28T09:08:23+00:00",
+        "end_ts": null,
+        "venue": "7500 Brooktree Rd Wexford",
+        "raw_address": "7500 Brooktree Rd, Wexford, PA 15090, USA",
+        "city": "Pittsburgh",
+        "lat": 40.6144002,
+        "lng": -80.0597799,
+        "source_url": "https://www.facebook.com/permalink.php?story_fbid=pfbid02e5zSXE2pvncByD8WCwzoEeeJj97Q3BbJn1KyU8y8Nutsi7KzjDdBtpdzM8L4HbTel&id=100063609611632",
+        "confidence": 1.0,
+        "last_seen_at": "2025-10-08T18:11:16.956+00:00"
+      },
+      {
+        "id": "baaf4f88-ed0f-462e-8cde-15dea441838f",
+        "truck_name": "Mission Mahi",
+        "start_ts": "2025-10-06T08:04:40+00:00",
+        "end_ts": null,
+        "venue": "8300 Thompson Run Rd",
+        "raw_address": "8300 Thompson Run Rd, Pittsburgh, PA 15237, USA",
+        "city": "Pittsburgh",
+        "lat": 40.562016,
+        "lng": -79.998628,
+        "source_url": "https://www.facebook.com/permalink.php?story_fbid=pfbid02ZWW1VJdcDuvBpjpzGmeKambgaBBjwk7dhkxDzTFkSbC5YSdjo2DbWrbtT9zYszBel&id=100063609611632",
+        "confidence": 1.0,
+        "last_seen_at": "2025-10-08T17:50:29.999+00:00"
+      },
+      {
+        "id": "44bfd2ab-71c8-46a4-8fbf-fdbabdf67ac5",
+        "truck_name": "Mission Mahi",
+        "start_ts": "2025-10-06T08:04:40+00:00",
+        "end_ts": null,
+        "venue": "8300 Thompson Run Rd 15237",
+        "raw_address": "8300 Thompson Run Rd, Pittsburgh, PA 15237, USA",
+        "city": "Pittsburgh",
+        "lat": 40.562016,
+        "lng": -79.998628,
+        "source_url": "https://www.facebook.com/permalink.php?story_fbid=pfbid02ZWW1VJdcDuvBpjpzGmeKambgaBBjwk7dhkxDzTFkSbC5YSdjo2DbWrbtT9zYszBel&id=100063609611632",
+        "confidence": 1.0,
+        "last_seen_at": "2025-10-08T18:11:16.956+00:00"
+      }
+    ],
+    "total_events": 4,
+    "last_seen": "2025-10-06T08:04:40+00:00"
   },
   {
     "name": "El Rincon Oaxaqueno",
     "slug": "el-rincon-oaxaqueno",
     "events": [
+      {
+        "id": "ef48a489-8d4a-4a15-a2fe-f028253b5978",
+        "truck_name": "El Rincon Oaxaqueno",
+        "start_ts": "2025-09-29T12:50:45+00:00",
+        "end_ts": null,
+        "venue": "3817 Butler St",
+        "raw_address": "3817 Butler St",
+        "city": "Pittsburgh",
+        "lat": 40.4633,
+        "lng": -79.9553,
+        "source_url": "https://www.facebook.com/permalink.php?story_fbid=pfbid02WrdAYyrFzEkuXPmkPteKFptEJ9BBGWCA54SGpYC77YSUyVKYDSCLZELftSh2AbxNl&id=100067595191698",
+        "confidence": 0.9,
+        "last_seen_at": "2025-10-08T18:14:11.923+00:00"
+      },
       {
         "id": "30553faa-fad3-484d-8329-0dd1a64a4601",
         "truck_name": "El Rincon Oaxaqueno",
@@ -123,7 +207,7 @@
         "lng": -79.9553,
         "source_url": "https://www.facebook.com/permalink.php?story_fbid=pfbid0ZTSjg63BW12YjwWosvky3isJEb9X4E6MeMYnRmNHKZqBdXJo4hdCEdSx8m3tHVuWl&id=100067595191698",
         "confidence": 0.9,
-        "last_seen_at": "2025-10-08T17:33:33.804+00:00"
+        "last_seen_at": "2025-10-08T18:14:11.923+00:00"
       },
       {
         "id": "2f93d8cb-6006-4ff2-b8cc-68c9d54e083b",
@@ -137,16 +221,30 @@
         "lng": -79.9553,
         "source_url": "https://www.facebook.com/permalink.php?story_fbid=pfbid0SGopGuiymX8M7xJuKiz8Qxh7Un9NmNa1jRBbkgwsv3HUJwQsYqGCb7usLq2RGTEol&id=100067595191698",
         "confidence": 0.9,
-        "last_seen_at": "2025-10-08T17:33:33.804+00:00"
+        "last_seen_at": "2025-10-08T18:14:11.923+00:00"
       }
     ],
-    "total_events": 3,
+    "total_events": 4,
     "last_seen": "2025-10-06T16:58:23+00:00"
   },
   {
     "name": "Blue Sparrow",
     "slug": "blue-sparrow",
     "events": [
+      {
+        "id": "b593895e-0d51-4722-a1eb-61cc55cfd338",
+        "truck_name": "Blue Sparrow",
+        "start_ts": "2025-09-30T10:58:00+00:00",
+        "end_ts": null,
+        "venue": "Blue Sparrow",
+        "raw_address": "1025 Main St, Pittsburgh, PA 15215, USA",
+        "city": "Pittsburgh, PA",
+        "lat": 40.4938628,
+        "lng": -79.9315478,
+        "source_url": "https://www.instagram.com/p/DPOU8kPAAYg/",
+        "confidence": 0.9,
+        "last_seen_at": "2025-10-08T17:49:50.682+00:00"
+      },
       {
         "id": "13af8d3c-ce96-4033-9828-d10440284946",
         "truck_name": "Blue Sparrow",
@@ -162,9 +260,23 @@
         "last_seen_at": "2025-10-08T17:33:32.596+00:00"
       },
       {
-        "id": "663f23f8-ac0c-4413-a6c2-17d423aa23ec",
+        "id": "224da300-34f2-4e92-92ac-94ef7d4246f3",
         "truck_name": "Blue Sparrow",
-        "start_ts": "2025-10-02T19:37:03+00:00",
+        "start_ts": "2025-09-30T17:00:00+00:00",
+        "end_ts": "2025-09-30T21:00:00+00:00",
+        "venue": "Dancing Gnome Beer",
+        "raw_address": "1025 Main St, Pittsburgh, PA 15215, USA",
+        "city": "Pittsburgh, PA",
+        "lat": 40.4938628,
+        "lng": -79.9315478,
+        "source_url": "https://www.instagram.com/p/DPOU8kPAAYg/",
+        "confidence": 0.9,
+        "last_seen_at": "2025-10-08T18:10:26.138+00:00"
+      },
+      {
+        "id": "bbf68032-1818-4a30-be1d-a7b291937982",
+        "truck_name": "Blue Sparrow",
+        "start_ts": "2025-10-02T17:00:00+00:00",
         "end_ts": "2025-10-02T21:00:00+00:00",
         "venue": "Dancing Gnome Beer",
         "raw_address": "1025 Main St, Pittsburgh, PA 15215, USA",
@@ -173,7 +285,35 @@
         "lng": -79.9315478,
         "source_url": "https://www.instagram.com/p/DPUZ74mkX-L/",
         "confidence": 0.9,
-        "last_seen_at": "2025-10-08T17:33:32.596+00:00"
+        "last_seen_at": "2025-10-08T18:10:26.138+00:00"
+      },
+      {
+        "id": "663f23f8-ac0c-4413-a6c2-17d423aa23ec",
+        "truck_name": "Blue Sparrow",
+        "start_ts": "2025-10-02T19:37:03+00:00",
+        "end_ts": null,
+        "venue": "Dancing Gnome Beer",
+        "raw_address": "1025 Main St, Pittsburgh, PA 15215, USA",
+        "city": "Pittsburgh, PA",
+        "lat": 40.4938628,
+        "lng": -79.9315478,
+        "source_url": "https://www.instagram.com/p/DPUZ74mkX-L/",
+        "confidence": 0.9,
+        "last_seen_at": "2025-10-08T17:49:50.682+00:00"
+      },
+      {
+        "id": "03e10c48-0f36-424d-b015-0d375a025ef8",
+        "truck_name": "Blue Sparrow",
+        "start_ts": "2025-10-03T12:00:00+00:00",
+        "end_ts": "2025-10-03T23:59:59+00:00",
+        "venue": "Dancing Gnome Beer",
+        "raw_address": "1025 Main St, Pittsburgh, PA 15215, USA",
+        "city": "Pittsburgh, PA",
+        "lat": 40.4938628,
+        "lng": -79.9315478,
+        "source_url": "https://www.instagram.com/p/DPWdUOpkcHo/",
+        "confidence": 0.9,
+        "last_seen_at": "2025-10-08T18:10:26.138+00:00"
       },
       {
         "id": "a6fc8d2d-782e-42fc-82e3-ad4138885b25",
@@ -188,10 +328,24 @@
         "source_url": "https://www.instagram.com/p/DPWdUOpkcHo/",
         "confidence": 0.9,
         "last_seen_at": "2025-10-08T17:33:32.596+00:00"
+      },
+      {
+        "id": "ec7a22d9-6f9d-4c75-beb4-8984abc50162",
+        "truck_name": "Blue Sparrow",
+        "start_ts": "2025-10-04T00:00:00+00:00",
+        "end_ts": null,
+        "venue": "Dancing Gnome Beer",
+        "raw_address": "1025 Main St, Pittsburgh, PA 15215, USA",
+        "city": "Pittsburgh, PA",
+        "lat": 40.4938628,
+        "lng": -79.9315478,
+        "source_url": "https://www.instagram.com/p/DPWdUOpkcHo/",
+        "confidence": 0.9,
+        "last_seen_at": "2025-10-08T17:49:50.682+00:00"
       }
     ],
-    "total_events": 3,
-    "last_seen": "2025-10-03T23:39:45+00:00"
+    "total_events": 8,
+    "last_seen": "2025-10-04T00:00:00+00:00"
   },
   {
     "name": "The Boonseek",
@@ -212,6 +366,20 @@
         "last_seen_at": "2025-10-08T17:33:34.251+00:00"
       },
       {
+        "id": "d5633338-6b66-4ee8-84f3-bba9f1377997",
+        "truck_name": "The Boonseek",
+        "start_ts": "2025-10-05T12:00:00+00:00",
+        "end_ts": "2025-10-05T15:00:00+00:00",
+        "venue": "Anthropologie Home Outlet",
+        "raw_address": "250 Mount Nebo PinteDr, 15237",
+        "city": "Pittsburgh",
+        "lat": 40.5,
+        "lng": -80.0,
+        "source_url": "https://www.instagram.com/p/DPPW_PakTeG/",
+        "confidence": 0.9,
+        "last_seen_at": "2025-10-08T18:21:21.462+00:00"
+      },
+      {
         "id": "6fe33cd9-1f7f-41c1-9cab-40d42c9ff099",
         "truck_name": "The Boonseek",
         "start_ts": "2025-10-05T12:00:00+00:00",
@@ -226,7 +394,7 @@
         "last_seen_at": "2025-10-08T17:33:34.251+00:00"
       }
     ],
-    "total_events": 2,
+    "total_events": 3,
     "last_seen": "2025-10-05T12:00:00+00:00"
   },
   {
@@ -243,9 +411,9 @@
         "city": "Los Angeles",
         "lat": 34.0522,
         "lng": -118.2437,
-        "source_url": "https://www.instagram.com/p/C14xmIIshkl/",
+        "source_url": "https://www.instagram.com/p/DPhD4FMCR0B/",
         "confidence": 0.9,
-        "last_seen_at": "2025-10-08T17:33:34.506+00:00"
+        "last_seen_at": "2025-10-08T18:25:31.676+00:00"
       },
       {
         "id": "38e67528-de28-44e8-8203-4aca43a8719c",
@@ -260,10 +428,24 @@
         "source_url": "https://www.instagram.com/p/DPhD4FMCR0B/",
         "confidence": 0.9,
         "last_seen_at": "2025-10-08T17:33:34.506+00:00"
+      },
+      {
+        "id": "c8a072b4-1ffa-40fc-9974-7a675cd8cc43",
+        "truck_name": "Cousins Maine Lobster (Pittsburgh)",
+        "start_ts": "2025-10-08T16:38:12+00:00",
+        "end_ts": null,
+        "venue": "Houston, Texas",
+        "raw_address": "Houston, Texas",
+        "city": "Houston",
+        "lat": 29.7604,
+        "lng": -95.3698,
+        "source_url": "https://www.instagram.com/p/Cm9iGzqrCqe/",
+        "confidence": 0.9,
+        "last_seen_at": "2025-10-08T18:25:31.676+00:00"
       }
     ],
-    "total_events": 2,
-    "last_seen": "2025-10-07T17:34:25+00:00"
+    "total_events": 3,
+    "last_seen": "2025-10-08T16:38:12+00:00"
   },
   {
     "name": "Blowfish BBQ",
@@ -281,11 +463,61 @@
         "lng": -79.861062,
         "source_url": "https://www.facebook.com/blowfishbbq/posts/pfbid055yXXFomv3RHfRfkSWE4J7kq34TCd8j1G3upPNAaukcSNqrdqQqPuESMFN8uUtNel",
         "confidence": 0.9,
-        "last_seen_at": "2025-10-08T17:40:16.86+00:00"
+        "last_seen_at": "2025-10-08T18:07:43.544+00:00"
       }
     ],
     "total_events": 1,
     "last_seen": "2025-10-01T16:33:26+00:00"
+  },
+  {
+    "name": "Los Gallitos",
+    "slug": "los-gallitos",
+    "events": [
+      {
+        "id": "f5bc8c69-4bdd-41c5-bafc-1c5b5b6cfe74",
+        "truck_name": "Los Gallitos",
+        "start_ts": "2025-10-01T19:03:29+00:00",
+        "end_ts": null,
+        "venue": "Los Gallitos Taqueria",
+        "raw_address": "2630 W Alameda Ave, Denver, CO 80219, USA",
+        "city": "Pittsburgh",
+        "lat": 39.7110271,
+        "lng": -105.018874,
+        "source_url": "https://www.instagram.com/p/DPRxDolEVCF/",
+        "confidence": 0.9,
+        "last_seen_at": "2025-10-08T18:13:01.879+00:00"
+      },
+      {
+        "id": "6c4355e9-eb8c-4959-9b3d-e7691d731618",
+        "truck_name": "Los Gallitos",
+        "start_ts": "2025-10-06T18:51:46+00:00",
+        "end_ts": null,
+        "venue": "Los Gallitos Taqueria",
+        "raw_address": "2630 W Alameda Ave, Denver, CO 80219, USA",
+        "city": "Pittsburgh",
+        "lat": 39.7110271,
+        "lng": -105.018874,
+        "source_url": "https://www.instagram.com/p/DPen7xfEoDG/",
+        "confidence": 0.9,
+        "last_seen_at": "2025-10-08T18:13:01.879+00:00"
+      },
+      {
+        "id": "b3d0b070-691c-4f90-9755-2940bc818af5",
+        "truck_name": "Los Gallitos",
+        "start_ts": "2025-10-07T18:18:21+00:00",
+        "end_ts": null,
+        "venue": "Los Gallitos Taqueria",
+        "raw_address": "2630 W Alameda Ave, Denver, CO 80219, USA",
+        "city": "Pittsburgh",
+        "lat": 39.7110271,
+        "lng": -105.018874,
+        "source_url": "https://www.instagram.com/p/DPhI52zkebf/",
+        "confidence": 0.9,
+        "last_seen_at": "2025-10-08T18:13:01.879+00:00"
+      }
+    ],
+    "total_events": 3,
+    "last_seen": "2025-10-07T18:18:21+00:00"
   },
   {
     "name": "Dos Reyes",
@@ -306,6 +538,20 @@
         "last_seen_at": "2025-10-08T17:33:33.933+00:00"
       },
       {
+        "id": "ce625144-4b55-4a2b-ad73-144edb12ca9d",
+        "truck_name": "Dos Reyes",
+        "start_ts": "2025-10-02T17:00:00+00:00",
+        "end_ts": null,
+        "venue": "Helicon Brewing",
+        "raw_address": "102 Union Ave, Oakdale, PA 15071, USA",
+        "city": "Pittsburgh, PA",
+        "lat": 40.3967697,
+        "lng": -80.1857567,
+        "source_url": "https://www.instagram.com/p/DPTvtFWEzqD/",
+        "confidence": 0.9,
+        "last_seen_at": "2025-10-08T18:15:00.435+00:00"
+      },
+      {
         "id": "3516a773-edcc-4646-8969-3f92345d5f52",
         "truck_name": "Dos Reyes",
         "start_ts": "2025-10-03T14:59:33+00:00",
@@ -318,6 +564,34 @@
         "source_url": "https://www.instagram.com/p/DPWe-QbE74k/",
         "confidence": 0.9,
         "last_seen_at": "2025-10-08T17:33:33.933+00:00"
+      },
+      {
+        "id": "3fc7e037-54b6-43c2-8bfb-670b5e2bd3a4",
+        "truck_name": "Dos Reyes",
+        "start_ts": "2025-10-03T16:00:00+00:00",
+        "end_ts": null,
+        "venue": "Hitchhiker Brewing",
+        "raw_address": "190 Castle Shannon Blvd, Pittsburgh, PA 15228, USA",
+        "city": "Pittsburgh, PA",
+        "lat": 40.3775864,
+        "lng": -80.040657,
+        "source_url": "https://www.instagram.com/p/DPWe-QbE74k/",
+        "confidence": 0.9,
+        "last_seen_at": "2025-10-08T18:15:00.435+00:00"
+      },
+      {
+        "id": "834a77d8-6c71-4569-8596-2e62b216d7e4",
+        "truck_name": "Dos Reyes",
+        "start_ts": "2025-10-04T17:00:00+00:00",
+        "end_ts": null,
+        "venue": "Pittsburgh, Pennsylvania",
+        "raw_address": "Pittsburgh, PA, USA",
+        "city": "Pittsburgh, PA",
+        "lat": 40.4386612,
+        "lng": -79.9972352,
+        "source_url": "https://www.instagram.com/p/DPZUnDKk-hb/",
+        "confidence": 0.9,
+        "last_seen_at": "2025-10-08T18:15:00.435+00:00"
       },
       {
         "id": "324301b7-c82c-488e-aa11-436da0a6a77a",
@@ -334,6 +608,20 @@
         "last_seen_at": "2025-10-08T17:33:33.933+00:00"
       },
       {
+        "id": "e295a83b-ef1b-4804-8c51-84f08fb1ada7",
+        "truck_name": "Dos Reyes",
+        "start_ts": "2025-10-06T17:00:00+00:00",
+        "end_ts": null,
+        "venue": "Pittsburgh, Pennsylvania",
+        "raw_address": "Pittsburgh, PA, USA",
+        "city": "Pittsburgh, PA",
+        "lat": 40.4386612,
+        "lng": -79.9972352,
+        "source_url": "https://www.instagram.com/p/DPegZWcE2j5/",
+        "confidence": 0.9,
+        "last_seen_at": "2025-10-08T18:15:00.435+00:00"
+      },
+      {
         "id": "6c0a4aa3-8d44-455a-984d-a31fa1626c6b",
         "truck_name": "Dos Reyes",
         "start_ts": "2025-10-06T17:45:55+00:00",
@@ -348,8 +636,44 @@
         "last_seen_at": "2025-10-08T17:33:33.933+00:00"
       }
     ],
-    "total_events": 4,
+    "total_events": 8,
     "last_seen": "2025-10-06T17:45:55+00:00"
+  },
+  {
+    "name": "Sahar's Food Lab",
+    "slug": "sahar-s-food-lab",
+    "events": [
+      {
+        "id": "b08b5122-5fe0-41d3-a474-86b4574e86e9",
+        "truck_name": "Sahar's Food Lab",
+        "start_ts": "2025-10-02T19:46:27+00:00",
+        "end_ts": null,
+        "venue": "Back Alley",
+        "raw_address": "MacArthur Dr, Taguig, Metro Manila, Philippines",
+        "city": "Pittsburgh, PA",
+        "lat": 14.5581989,
+        "lng": 121.0588193,
+        "source_url": "https://www.instagram.com/p/DPUbAuVDwSg/",
+        "confidence": 0.9,
+        "last_seen_at": "2025-10-08T18:22:38.948+00:00"
+      },
+      {
+        "id": "d0d1bcc7-0866-4d49-a9c7-52dff23e7f78",
+        "truck_name": "Sahar's Food Lab",
+        "start_ts": "2025-10-04T16:54:55+00:00",
+        "end_ts": null,
+        "venue": "Back Alley",
+        "raw_address": "MacArthur Dr, Taguig, Metro Manila, Philippines",
+        "city": "Pittsburgh, PA",
+        "lat": 14.5581989,
+        "lng": 121.0588193,
+        "source_url": "https://www.instagram.com/p/DPZQ-MukSvO/",
+        "confidence": 0.9,
+        "last_seen_at": "2025-10-08T18:22:38.948+00:00"
+      }
+    ],
+    "total_events": 2,
+    "last_seen": "2025-10-04T16:54:55+00:00"
   },
   {
     "name": "RedEye Bar-B-Q",
@@ -363,11 +687,11 @@
         "venue": "Jackworth Ginger Beer",
         "raw_address": "Lawrenceville Pittsburgh",
         "city": "Pittsburgh",
-        "lat": 40.463,
-        "lng": -79.955,
+        "lat": 40.446,
+        "lng": -79.961,
         "source_url": "https://www.instagram.com/p/DPU1stQDCLE/",
         "confidence": 1.0,
-        "last_seen_at": "2025-10-08T17:49:03.172+00:00"
+        "last_seen_at": "2025-10-08T18:09:57.138+00:00"
       },
       {
         "id": "2615e5a1-dc1e-48f0-8455-46e0151fcb2d",
@@ -414,27 +738,5 @@
     ],
     "total_events": 4,
     "last_seen": "2025-10-09T11:30:00+00:00"
-  },
-  {
-    "name": "Los Gallitos",
-    "slug": "los-gallitos",
-    "events": [
-      {
-        "id": "6c4355e9-eb8c-4959-9b3d-e7691d731618",
-        "truck_name": "Los Gallitos",
-        "start_ts": "2025-10-06T18:51:46+00:00",
-        "end_ts": null,
-        "venue": "Los Gallitos Taqueria",
-        "raw_address": "2630 W Alameda Ave, Denver, CO 80219, USA",
-        "city": "Pittsburgh",
-        "lat": 39.7110271,
-        "lng": -105.018874,
-        "source_url": "https://www.instagram.com/p/DPen7xfEoDG/",
-        "confidence": 0.9,
-        "last_seen_at": "2025-10-08T17:33:33.647+00:00"
-      }
-    ],
-    "total_events": 1,
-    "last_seen": "2025-10-06T18:51:46+00:00"
   }
 ]
